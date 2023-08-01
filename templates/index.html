@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Educativo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chatbox">
+        <div class="chatlog" id="chatlog"></div>
+        <div class="user-input">
+            <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+    <script>
+        function appendMessage(userMsg, botMsg) {
+            var chatlog = document.getElementById('chatlog');
+            var userDiv = document.createElement('div');
+            userDiv.className = 'user-message';
+            userDiv.textContent = 'Você: ' + userMsg;
+
+            var botDiv = document.createElement('div');
+            botDiv.className = 'bot-message';
+            botDiv.textContent = 'Chatbot: ' + botMsg;
+
+            chatlog.appendChild(userDiv);
+            chatlog.appendChild(botDiv);
+        }
+
+        function sendMessage() {
+            var userInput = document.getElementById('userInput');
+            var userMsg = userInput.value;
+            userInput.value = '';
+
+            appendMessage(userMsg, 'Aguarde um momento...');
+
+            fetch('/get_response', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'user_input=' + encodeURIComponent(userMsg)
+            })
+            .then(response => response.json())
+            .then(data => {
+                var botMsg = data.response;
+                appendMessage(userMsg, botMsg);
+            });
+        }
+    </script>
+</body>
+</html>

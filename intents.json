@@ -1,0 +1,88 @@
+{
+    "intents": [
+        {
+            "tag": "saudacao",
+            "padroes": ["Olá", "Como você está", "Tem alguém aí?", "E aí", "Olá", "Bom dia"],
+            "respostas": ["Olá, obrigado por perguntar", "Bom te ver novamente", "Olá, como posso ajudar?"],
+            "contexto": [""]
+        },
+        {
+            "tag": "despedida",
+            "padroes": ["Tchau", "Até mais tarde", "Adeus", "Foi bom conversar com você, tchau", "Até a próxima"],
+            "respostas": ["Até logo!", "Tenha um bom dia", "Tchau! Volte novamente em breve."],
+            "contexto": [""]
+        },
+        {
+            "tag": "agradecimento",
+            "padroes": ["Obrigado", "Obrigado", "Isso é útil", "Ótimo, obrigado", "Obrigado por me ajudar"],
+            "respostas": ["Fico feliz em ajudar!", "A qualquer momento!", "É um prazer"],
+            "contexto": [""]
+        },
+        {
+            "tag": "sem_resposta",
+            "padroes": [],
+            "respostas": ["Desculpe, não consigo entender você", "Por favor, forneça mais informações", "Não tenho certeza se entendi"],
+            "contexto": [""]
+        },
+        {
+            "tag": "opcoes",
+            "padroes": ["Como você pode me ajudar?", "O que você pode fazer?", "Que tipo de ajuda você oferece?", "Como você pode ser útil?", "Que suporte é oferecido"],
+            "respostas": ["Posso orientá-lo sobre a lista de reações adversas a medicamentos, rastreamento de pressão arterial, hospitais e farmácias", "Oferecendo suporte para reações adversas a medicamentos, pressão arterial, hospitais e farmácias"],
+            "contexto": [""]
+        },
+        {
+            "tag": "reacao_adversa_medicamento",
+            "padroes": ["Como verificar reação adversa a medicamentos?", "Abrir módulo de reações adversas a medicamentos", "Dê-me uma lista de medicamentos que causam comportamentos adversos", "Listar todos os medicamentos adequados para paciente com reação adversa", "Quais medicamentos não têm reação adversa?"],
+            "respostas": ["Navegando para o módulo de reações adversas a medicamentos"],
+            "contexto": [""]
+        },
+        {
+            "tag": "pressao_arterial",
+            "padroes": ["Abrir módulo de pressão arterial", "Tarefa relacionada à pressão arterial", "Registro de dados de pressão arterial", "Quero registrar os resultados da pressão arterial", "Gestão de dados de pressão arterial"],
+            "respostas": ["Navegando para o módulo de Pressão Arterial"],
+            "contexto": [""]
+        },
+        {
+            "tag": "busca_pressao_arterial",
+            "padroes": ["Quero pesquisar o histórico de resultados da pressão arterial", "Pressão arterial para paciente", "Carregar resultado da pressão arterial do paciente", "Mostrar resultados da pressão arterial para paciente", "Encontrar resultados da pressão arterial pelo ID"],
+            "respostas": ["Por favor, forneça o ID do paciente", "ID do paciente?"],
+            "contexto": ["busca_pressao_arterial_por_id_paciente"]
+        },
+        {
+            "tag": "busca_pressao_arterial_por_id_paciente",
+            "padroes": [],
+            "respostas": ["Carregando resultados da pressão arterial para o paciente"],
+            "contexto": [""]
+        },
+        {
+            "tag": "busca_farmacia",
+            "padroes": ["Encontre uma farmácia para mim", "Encontrar farmácia", "Lista de farmácias próximas", "Localizar farmácia", "Pesquisar farmácia"],
+            "respostas": ["Por favor, forneça o nome da farmácia"],
+            "contexto": ["busca_farmacia_por_nome"]
+        },
+        {
+            "tag": "busca_farmacia_por_nome",
+            "padroes": [],
+            "respostas": ["Carregando detalhes da farmácia"],
+            "contexto": [""]
+        },
+        {
+            "tag": "busca_hospital",
+            "padroes": ["Pesquisar hospital", "Procurando hospital para transferir paciente", "Quero pesquisar dados do hospital", "Pesquisa de hospital para paciente", "Procurando detalhes do hospital"],
+            "respostas": ["Por favor, forneça o nome ou localização do hospital"],
+            "contexto": ["busca_hospital_por_parametros"]
+        },
+        {
+            "tag": "busca_hospital_por_parametros",
+            "padroes": [],
+            "respostas": ["Por favor, forneça o tipo de hospital"],
+            "contexto": ["busca_hospital_por_tipo"]
+        },
+        {
+            "tag": "busca_hospital_por_tipo",
+            "padroes": [],
+            "respostas": ["Carregando detalhes do hospital"],
+            "contexto": [""]
+        }
+    ]
+}
